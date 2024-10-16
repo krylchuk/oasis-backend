@@ -22,6 +22,12 @@ app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
 app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 app.config['MYSQL_PORT'] = int(os.getenv('MYSQL_PORT'))
 
+@app.route('/')
+def home():
+    return jsonify({
+        'message': 'Welcome to the Gardening Services API.'
+    })
+
 
 @app.route('/create_budget', methods=['POST'])
 def create_budget():
